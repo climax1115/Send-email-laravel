@@ -28,7 +28,12 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = 'HDTutoMail';
+    //protected $redirectTo = 'HDTutoMail';
+
+    protected function redirectTo()
+    {
+        return '/HDTutoMail';
+    }
 
     /**
      * Create a new controller instance.

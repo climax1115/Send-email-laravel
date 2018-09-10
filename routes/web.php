@@ -11,20 +11,18 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function () 
+{
     return view('welcome');
 });
 
-Route::get('HDTutoMail', function () {
+Route::get('HDTutoMail/{id}', function ($id) 
+{
+    $user = \App\User::find($id);
 
-    $user = \App\User::find(1);
-
-    Mail::to($user->email)->send(new \App\Mail\HDTutoMail($user));
-
-    //dd("Email is Sent.");
+    Mail::to('maximebarber@gmail.com')->send(new \App\Mail\HDTutoMail($user));
 
     return redirect('/home');
-
 });
 
 Auth::routes();
