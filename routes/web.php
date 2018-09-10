@@ -21,7 +21,9 @@ Route::get('HDTutoMail', function () {
 
     Mail::to($user->email)->send(new \App\Mail\HDTutoMail($user));
 
-    dd("Email is Sent.");
+    //dd("Email is Sent.");
+
+    return redirect('/home');
 
 });
 
