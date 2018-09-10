@@ -14,3 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('HDTutoMail', function () {
+
+    $user = \App\User::find(1);
+
+    Mail::to($user->email)->send(new \App\Mail\HDTutoMail($user));
+
+    dd("Email is Sent.");
+
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
